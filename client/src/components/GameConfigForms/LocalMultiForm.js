@@ -1,36 +1,34 @@
 import { useState, useEffect } from "react";
 
-const formVariants = [
-    <>   { /* Fragment, expects to be concatenated as necessary within a <form> element */ }
-            { /* Player one and two base; index 0 */ }
-    <label key="p1" htmlFor="player-one">Player One:</label>
-    <input key="t1" type="text" id="playerOne" onChange={(e) => console.log(e.target.value)}></input>
-    <label key="p2" htmlFor="player-two">Player Two:</label>
-    <input key="t2" type="text" id="playerTwo" onChange={(e) => console.log(e.target.value)}></input>
-    </>
-    ,
-    <>  { /* Player three add on */ }
-    <label key="p3" htmlFor="player-three">Player Three:</label>
-    <input key="t3" type="text" id="playerThree" onChange={(e) => console.log(e.target.value)}></input>
-    </>
-    ,
-    <>
-    <label key="p4" htmlFor="player-four">Player Four:</label>
-    <input key="t4" type="text" id="playerFour" onChange={(e) => console.log(e.target.value)}></input>
-    </>
-];
-
-
-
 export default function LocalMultiForm() {
     const [players, setPlayers] = useState(null);
     const [formVariant, setFormVariant] = useState(null);
-    const [playerNames, setPlayerNames] = useState({
-        playerOne: null,
-        playerTwo: null,
-        playerThree: null,
-        playerFour: null
-    });
+    const [playerOne, setPlayerOne] = useState('');
+    const [playerTwo, setPlayerTwo] = useState('');
+    const [playerThree, setPlayerThree] = useState('');
+    const [playerFour, setPlayerFour] = useState('');
+
+    const formVariants = [
+        <>   { /* Fragment, expects to be concatenated as necessary within a <form> element */ }
+                { /* Player one and two base; index 0 */ }
+        <label key="p1" htmlFor="player-one">Player One:</label>
+        <input key="t1" type="text" id="playerOne" onChange={(e) => setPlayerOne(e.target.value)}></input>
+        <label key="p2" htmlFor="player-two">Player Two:</label>
+        <input key="t2" type="text" id="playerTwo" onChange={(e) => setPlayerTwo(e.target.value)}></input>
+        </>
+        ,
+        <>  { /* Player three add on */ }
+        <label key="p3" htmlFor="player-three">Player Three:</label>
+        <input key="t3" type="text" id="playerThree" onChange={(e) => setPlayerThree(e.target.value)}></input>
+        </>
+        ,
+        <>
+        <label key="p4" htmlFor="player-four">Player Four:</label>
+        <input key="t4" type="text" id="playerFour" onChange={(e) => setPlayerFour(e.target.value)}></input>
+        </>
+    ];
+
+    // useEffect for player form logic
 
     useEffect(() => {
         switch (players) {
