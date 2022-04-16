@@ -1,12 +1,14 @@
+import { useContext, useEffect, useState } from 'react';
+import { Context } from '../../store/Store';
 import '../../styles/GameBoard.css';
-import { useEffect, useState } from 'react';
-
 import Card from '../Cards/Card';
 import { TierOneDeck } from '../../store/TierOneDeck';
 import { TierTwoDeck } from '../../store/TierTwoDeck';
 import { TierThreeDeck } from '../../store/TierThreeDeck';
 
 export default function GameBoard() {
+    const [state, dispatch] = useContext(Context);
+
     const [trigger, setTrigger] = useState(true);
     const [tierThree, setTierThree] = useState(null);
     const [tierTwo, setTierTwo] = useState(null);
@@ -56,6 +58,7 @@ export default function GameBoard() {
     return (
         <div className="gameboard">
             <h1 className="gameboard-title">SPLINTER</h1>
+            <h2>Players: {state.players}</h2>
 
             <div className="gameboard-row">
                 {tierThree || 'Loading'}

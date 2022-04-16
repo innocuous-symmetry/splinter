@@ -1,12 +1,12 @@
 import { useReducer, createContext } from "react"
 
-import { TierOneDeck } from "../../store/TierOneDeck"
-import { TierTwoDeck } from "../../store/TierTwoDeck"
-import { TierThreeDeck } from "../../store/TierThreeDeck"
-import { Spirits } from "./Spirits"
+import { TierOneDeck } from './TierOneDeck';
+import { TierTwoDeck } from './TierTwoDeck';
+import { TierThreeDeck } from './TierThreeDeck';
+import { Spirits } from '../components/Game/Spirits';
 
 const initialGameState = {
-    players: [],
+    players: ['no players'],
     materials: {
         cards: {
             tierOneRemaining: TierOneDeck,
@@ -27,13 +27,18 @@ const initialGameState = {
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case "ADD PLAYER":
-            state.players.push(action.payload);
-            break;
+        case "GET PLAYERS":
+            return state;
+        case "ADD PLAYERS":
+            state.players = action.payload;
+            return state;
         case "UPDATE PLAYER MATERIALS":
             // find player in array of players and update their resources
             // update list of available materials in state
             break;
+        case "PRINT PLAYERS":
+            console.log(state.players);
+            return state;
         default:
             break;
     }

@@ -1,12 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "../../store/Store";
 
 export default function LocalMultiForm() {
+    const [state, dispatch] = useContext(Context);
+    
     const [players, setPlayers] = useState(null);
     const [formVariant, setFormVariant] = useState(null);
     const [playerOne, setPlayerOne] = useState('');
     const [playerTwo, setPlayerTwo] = useState('');
     const [playerThree, setPlayerThree] = useState('');
     const [playerFour, setPlayerFour] = useState('');
+
+    const allPlayerNames = [playerOne, playerTwo, playerThree, playerFour];
 
     const formVariants = [
         <>   { /* Fragment, expects to be concatenated as necessary within a <form> element */ }
@@ -46,6 +51,23 @@ export default function LocalMultiForm() {
                 break;
         }
     }, [players]);
+    
+    const handleStartGame = () => {
+        let toSubmit = [];
+        let iter = 0;
+        while (iter < players) {
+            toSubmit.push(allPlayerNames[iter]);
+            iter++;
+        }
+
+        if (toSubmit.length < players) return;
+
+        for (let item of toSubmit) {
+            if (!item) return;
+        }
+
+        dispatch({ type: "ADD PLAYERS", payload: toSubmit });
+    }
 
     return (
         <>
@@ -69,6 +91,8 @@ export default function LocalMultiForm() {
         <form className="player-input" style={{paddingBottom: '1rem'}}>
             {formVariant}
         </form>
+        <button href='/' onClick={handleStartGame}>Start game</button>
+        <button onClick={() => dispatch({type: "PRINT PLAYERS"})}>Get Players</button>
         </>
     )
 }
