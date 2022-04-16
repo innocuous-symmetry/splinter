@@ -6,6 +6,8 @@ import { TierOneDeck } from '../../store/TierOneDeck';
 import { TierTwoDeck } from '../../store/TierTwoDeck';
 import { TierThreeDeck } from '../../store/TierThreeDeck';
 
+import {v4} from 'uuid';
+
 export default function GameBoard() {
     const [state, dispatch] = useContext(Context);
 
@@ -26,7 +28,7 @@ export default function GameBoard() {
                 iter++;
 
                 if (!AllDecks[tier-1][iter-1]) continue;
-                newBoard.push(<Card state={AllDecks[tier-1][iter-1]} />);
+                newBoard.push(<Card key={`card-${v4()}`}state={AllDecks[tier-1][iter-1]} />);
             }
 
             switch (tier) {
@@ -58,7 +60,10 @@ export default function GameBoard() {
     return (
         <div className="gameboard">
             <h1 className="gameboard-title">SPLINTER</h1>
-            <h2>Players: {state.players}</h2>
+            <div>
+                <h2>Players:</h2>
+                {state.players.map(player => <p key={`player-${v4()}`}>{player}</p>)}
+            </div>
 
             <div className="gameboard-row">
                 {tierThree || 'Loading'}

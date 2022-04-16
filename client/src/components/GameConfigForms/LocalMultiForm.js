@@ -1,8 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { Context } from "../../store/Store";
+import { useNavigate } from "react-router-dom";
 
 export default function LocalMultiForm() {
     const [state, dispatch] = useContext(Context);
+    const navigate = useNavigate();
     
     const [players, setPlayers] = useState(null);
     const [formVariant, setFormVariant] = useState(null);
@@ -67,6 +69,7 @@ export default function LocalMultiForm() {
         }
 
         dispatch({ type: "ADD PLAYERS", payload: toSubmit });
+        navigate('/gameboard');
     }
 
     return (
@@ -91,7 +94,7 @@ export default function LocalMultiForm() {
         <form className="player-input" style={{paddingBottom: '1rem'}}>
             {formVariant}
         </form>
-        <button href='/' onClick={handleStartGame}>Start game</button>
+        <button onClick={handleStartGame}>Start game</button>
         <button onClick={() => dispatch({type: "PRINT PLAYERS"})}>Get Players</button>
         </>
     )
