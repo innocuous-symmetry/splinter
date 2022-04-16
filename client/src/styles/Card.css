@@ -1,0 +1,37 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 20vw;
+    height: 30vh;
+}
+
+.card-row {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.7rem;
+    height: 50%;
+}
+
+.bottom-row {
+    align-items: flex-end;
+}
+
+.tier {
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+}
+
+.tier-3 {
+    background-color: blue;
+}
+
+.tier-2 {
+    background-color: yellow;
+}
+
+.tier-1 {
+    background-color: green;
+}
