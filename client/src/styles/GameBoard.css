@@ -1,0 +1,15 @@
+.gameboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.gameboard-title {
+    font-weight: bold;
+}
+
+.gameboard-row {
+    display: flex;
+    flex-flow: row wrap;
+    width: 90vw;
+    justify-content: center;
+}
