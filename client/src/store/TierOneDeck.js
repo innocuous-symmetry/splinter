@@ -1,4 +1,4 @@
-export const CardDeck = [
+export const TierOneDeck = [
     // TIER ONE CARDS
     // total: 40
     // cat 1: [2,1] cost cards

@@ -1,7 +1,10 @@
 import '../../styles/GameBoard.css';
-import Card from '../Cards/Card';
-import { CardDeck } from '../../store/CardDeck';
 import { useEffect, useState } from 'react';
+
+import Card from '../Cards/Card';
+import { TierOneDeck } from '../../store/TierOneDeck';
+import { TierTwoDeck } from '../../store/TierTwoDeck';
+import { TierThreeDeck } from '../../store/TierThreeDeck';
 
 export default function GameBoard() {
     const [trigger, setTrigger] = useState(true);
@@ -10,6 +13,8 @@ export default function GameBoard() {
     const [tierOne, setTierOne] = useState(null);
 
     const [content, setContent] = useState(null);
+
+    const AllDecks = [TierOneDeck, TierTwoDeck, TierThreeDeck];
     
     useEffect(() => {
         // param limit sets limit on number of cards rendered
@@ -17,13 +22,11 @@ export default function GameBoard() {
         const buildGameBoardRow = (limit, tier) => {
             let newBoard = [];
             let iter = 0;
-            for (let cardConfig of CardDeck) {
-                if (cardConfig.tier !== tier) continue;
-                while (iter < limit) {
-                    iter++;
-                    // if (cardConfig.tier !== tier) continue;
-                    newBoard.push(<Card state={cardConfig} />);
-                }
+            while (iter < limit) {
+                iter++;
+
+                if (!AllDecks[tier-1][iter-1]) continue;
+                newBoard.push(<Card state={AllDecks[tier-1][iter-1]} />);
             }
 
             switch (tier) {
@@ -45,7 +48,11 @@ export default function GameBoard() {
             }
         }
 
-        if (trigger) buildGameBoardRow(6,1);
+        if (trigger) {
+            buildGameBoardRow(4,3);
+            buildGameBoardRow(4,2);
+            buildGameBoardRow(4,1);
+        }
     }, [trigger]);
 
     return (
@@ -53,10 +60,18 @@ export default function GameBoard() {
             <h1 className="gameboard-title">SPLINTER</h1>
 
             <div className="gameboard-row">
+                {tierThree || 'Loading'}
+            </div>
+
+            <div className="gameboard-row">
+                {tierTwo || 'Loading'}
+            </div>
+
+            <div className="gameboard-row">
                 {tierOne || 'Loading'}
             </div>
 
-            <h2>Deck length: {CardDeck.length}</h2>
+            <h2>Deck length: {TierOneDeck.length}</h2>
         </div>
     )
 }
