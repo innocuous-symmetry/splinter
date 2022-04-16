@@ -6,7 +6,7 @@ import { TierThreeDeck } from './TierThreeDeck';
 import { Spirits } from '../components/Game/Spirits';
 
 const initialGameState = {
-    players: ['no players'],
+    players: [{name: 'no players', inventory: null, cards: null}],
     materials: {
         cards: {
             tierOneRemaining: TierOneDeck,

@@ -58,7 +58,26 @@ export default function LocalMultiForm() {
         let toSubmit = [];
         let iter = 0;
         while (iter < players) {
-            toSubmit.push(allPlayerNames[iter]);
+            toSubmit.push({
+                name: allPlayerNames[iter],
+                tokens: {
+                    cedar: 0,
+                    birch: 0,
+                    walnut: 0,
+                    mahogany: 0,
+                    cherry: 0,
+                    resin: 0,
+                },
+                cards: {
+                    cedar: 0,
+                    birch: 0,
+                    walnut: 0,
+                    mahogany: 0,
+                    cherry: 0,
+                },
+                points: 0,
+                spirits: 0,
+            });
             iter++;
         }
 

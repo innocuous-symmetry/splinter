@@ -59,10 +59,18 @@ export default function GameBoard() {
 
     return (
         <div className="gameboard">
-            <h1 className="gameboard-title">SPLINTER</h1>
+            <a href='/' className="gameboard-title">SPLINTER</a>
             <div>
                 <h2>Players:</h2>
-                {state.players.map(player => <p key={`player-${v4()}`}>{player}</p>)}
+                {state.players.map(player => {
+                    return (
+                        <div className="player-info">
+                            <p>{player.name}</p>
+                            <p>{player.points && `Score: ${player.points}`}</p>
+                        </div>
+                    )
+                })
+                }
             </div>
 
             <div className="gameboard-row">
