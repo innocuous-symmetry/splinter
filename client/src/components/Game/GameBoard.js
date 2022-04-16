@@ -11,12 +11,10 @@ export default function GameBoard() {
     const [tierThree, setTierThree] = useState(null);
     const [tierTwo, setTierTwo] = useState(null);
     const [tierOne, setTierOne] = useState(null);
-
-    const [content, setContent] = useState(null);
-
-    const AllDecks = [TierOneDeck, TierTwoDeck, TierThreeDeck];
     
     useEffect(() => {
+        const AllDecks = [TierOneDeck, TierTwoDeck, TierThreeDeck];
+        
         // param limit sets limit on number of cards rendered
         // param tier filters by card tier
         const buildGameBoardRow = (limit, tier) => {

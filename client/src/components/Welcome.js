@@ -50,7 +50,7 @@ export default function Welcome() {
         </form>
 
         {localMulti ? <LocalMultiForm /> : null}
-        {cpuMulti ? <CpuMultiForm /> : null}
+        {cpuMulti   ? <CpuMultiForm />   : null}
 
         <button onClick={handleClear}>Clear form input</button>
         </>
