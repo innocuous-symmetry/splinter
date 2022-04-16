@@ -2,18 +2,21 @@ import './App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 import Welcome from './components/Welcome';
-import GameBoard from './components/Game/GameBoard';
+import FulLGameView from './components/Game/FullGameView';
+import Store from './store/Store';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Welcome />}/>
-            <Route path="/gameboard" element={<GameBoard />}/>
-          </Routes>
-        </BrowserRouter>
-      </div>
+    <Store>
+      <div className="App">
+        <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Welcome />}/>
+              <Route path="/gameboard" element={<FulLGameView />}/>
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </Store>
   );
 }
 

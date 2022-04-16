@@ -1,22 +1,24 @@
+import { useContext, useEffect, useState } from 'react';
+import { Context } from '../../store/Store';
 import '../../styles/GameBoard.css';
-import { useEffect, useState } from 'react';
-
 import Card from '../Cards/Card';
 import { TierOneDeck } from '../../store/TierOneDeck';
 import { TierTwoDeck } from '../../store/TierTwoDeck';
 import { TierThreeDeck } from '../../store/TierThreeDeck';
 
+import {v4} from 'uuid';
+
 export default function GameBoard() {
+    const [state, dispatch] = useContext(Context);
+
     const [trigger, setTrigger] = useState(true);
     const [tierThree, setTierThree] = useState(null);
     const [tierTwo, setTierTwo] = useState(null);
     const [tierOne, setTierOne] = useState(null);
-
-    const [content, setContent] = useState(null);
-
-    const AllDecks = [TierOneDeck, TierTwoDeck, TierThreeDeck];
     
     useEffect(() => {
+        const AllDecks = [TierOneDeck, TierTwoDeck, TierThreeDeck];
+        
         // param limit sets limit on number of cards rendered
         // param tier filters by card tier
         const buildGameBoardRow = (limit, tier) => {
@@ -26,7 +28,7 @@ export default function GameBoard() {
                 iter++;
 
                 if (!AllDecks[tier-1][iter-1]) continue;
-                newBoard.push(<Card state={AllDecks[tier-1][iter-1]} />);
+                newBoard.push(<Card key={`card-${v4()}`}state={AllDecks[tier-1][iter-1]} />);
             }
 
             switch (tier) {
@@ -57,7 +59,19 @@ export default function GameBoard() {
 
     return (
         <div className="gameboard">
-            <h1 className="gameboard-title">SPLINTER</h1>
+            <a href='/' className="gameboard-title">SPLINTER</a>
+            <div>
+                <h2>Players:</h2>
+                {state.players.map(player => {
+                    return (
+                        <div className="player-info">
+                            <p>{player.name}</p>
+                            <p>{player.points && `Score: ${player.points}`}</p>
+                        </div>
+                    )
+                })
+                }
+            </div>
 
             <div className="gameboard-row">
                 {tierThree || 'Loading'}

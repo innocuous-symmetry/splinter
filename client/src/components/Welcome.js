@@ -1,8 +1,11 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useContext } from "react"
 import LocalMultiForm from "./GameConfigForms/LocalMultiForm";
 import CpuMultiForm from "./GameConfigForms/CpuMultiForm";
+import { Context } from "../store/Store";
 
 export default function Welcome() {
+    const [state, dispatch] = useContext(Context);
+
     const [localMulti, setLocalMulti] = useState(false);
     const [cpuMulti, setCpuMulti] = useState(false);
 
@@ -50,7 +53,7 @@ export default function Welcome() {
         </form>
 
         {localMulti ? <LocalMultiForm /> : null}
-        {cpuMulti ? <CpuMultiForm /> : null}
+        {cpuMulti   ? <CpuMultiForm />   : null}
 
         <button onClick={handleClear}>Clear form input</button>
         </>

@@ -1,9 +1,6 @@
-.gameboard {
-    display: flex;
-    flex-direction: column;
-}
-
 .gameboard-title {
+    text-decoration: none;
+    font-size: 2rem;
     font-weight: bold;
 }
 

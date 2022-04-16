@@ -1,12 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "../../store/Store";
+import { useNavigate } from "react-router-dom";
 
 export default function LocalMultiForm() {
+    const [state, dispatch] = useContext(Context);
+    const navigate = useNavigate();
+    
     const [players, setPlayers] = useState(null);
     const [formVariant, setFormVariant] = useState(null);
     const [playerOne, setPlayerOne] = useState('');
     const [playerTwo, setPlayerTwo] = useState('');
     const [playerThree, setPlayerThree] = useState('');
     const [playerFour, setPlayerFour] = useState('');
+
+    const allPlayerNames = [playerOne, playerTwo, playerThree, playerFour];
 
     const formVariants = [
         <>   { /* Fragment, expects to be concatenated as necessary within a <form> element */ }
@@ -46,6 +53,43 @@ export default function LocalMultiForm() {
                 break;
         }
     }, [players]);
+    
+    const handleStartGame = () => {
+        let toSubmit = [];
+        let iter = 0;
+        while (iter < players) {
+            toSubmit.push({
+                name: allPlayerNames[iter],
+                tokens: {
+                    cedar: 0,
+                    birch: 0,
+                    walnut: 0,
+                    mahogany: 0,
+                    cherry: 0,
+                    resin: 0,
+                },
+                cards: {
+                    cedar: 0,
+                    birch: 0,
+                    walnut: 0,
+                    mahogany: 0,
+                    cherry: 0,
+                },
+                points: 0,
+                spirits: 0,
+            });
+            iter++;
+        }
+
+        if (toSubmit.length < players) return;
+
+        for (let item of toSubmit) {
+            if (!item) return;
+        }
+
+        dispatch({ type: "ADD PLAYERS", payload: toSubmit });
+        navigate('/gameboard');
+    }
 
     return (
         <>
@@ -69,6 +113,8 @@ export default function LocalMultiForm() {
         <form className="player-input" style={{paddingBottom: '1rem'}}>
             {formVariant}
         </form>
+        <button onClick={handleStartGame}>Start game</button>
+        <button onClick={() => dispatch({type: "PRINT PLAYERS"})}>Get Players</button>
         </>
     )
 }
