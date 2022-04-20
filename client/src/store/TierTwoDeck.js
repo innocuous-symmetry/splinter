@@ -8,7 +8,7 @@ export const TierTwoDeck = [
         isWorth: 'cedar',
         cost: {
             cedar: 5,
-            birch: 3,
+            aspen: 3,
             walnut: 0,
             mahogany: 0,
             cherry: 0
@@ -17,10 +17,10 @@ export const TierTwoDeck = [
     {
         tier: 2,
         points: 3,
-        isWorth: 'birch',
+        isWorth: 'aspen',
         cost: {
             cedar: 0,
-            birch: 5,
+            aspen: 5,
             walnut: 3,
             mahogany: 0,
             cherry: 0
@@ -32,7 +32,7 @@ export const TierTwoDeck = [
         isWorth: 'walnut',
         cost: {
             cedar: 0,
-            birch: 0,
+            aspen: 0,
             walnut: 5,
             mahogany: 3,
             cherry: 0
@@ -44,7 +44,7 @@ export const TierTwoDeck = [
         isWorth: 'mahogany',
         cost: {
             cedar: 0,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 5,
             cherry: 3

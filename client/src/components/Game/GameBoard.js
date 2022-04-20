@@ -85,7 +85,9 @@ export default function GameBoard() {
                 {tierOne || 'Loading'}
             </div>
 
-            <h2>Deck length: {TierOneDeck.length}</h2>
+            <h2>Tier one length: {TierOneDeck.length} / 40</h2>
+            <h2>Tier two length: {TierTwoDeck.length} / 30</h2>
+            <h2>Tier three length: {TierThreeDeck.length} / 20</h2>
         </div>
     )
 }

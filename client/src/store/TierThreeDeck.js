@@ -8,7 +8,7 @@ export const TierThreeDeck = [
         isWorth: 'cedar',
         cost: {
             cedar: 7,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 0,
             cherry: 0
@@ -17,10 +17,10 @@ export const TierThreeDeck = [
     {
         tier: 3,
         points: 5,
-        isWorth: 'birch',
+        isWorth: 'aspen',
         cost: {
             cedar: 0,
-            birch: 7,
+            aspen: 7,
             walnut: 0,
             mahogany: 0,
             cherry: 0
@@ -32,7 +32,7 @@ export const TierThreeDeck = [
         isWorth: 'walnut',
         cost: {
             cedar: 0,
-            birch: 0,
+            aspen: 0,
             walnut: 7,
             mahogany: 0,
             cherry: 0
@@ -44,7 +44,7 @@ export const TierThreeDeck = [
         isWorth: 'mahogany',
         cost: {
             cedar: 0,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 7,
             cherry: 0
@@ -56,7 +56,7 @@ export const TierThreeDeck = [
         isWorth: 'cherry',
         cost: {
             cedar: 0,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 0,
             cherry: 7
@@ -70,7 +70,7 @@ export const TierThreeDeck = [
         isWorth: 'cedar',
         cost: {
             cedar: 7,
-            birch: 3,
+            aspen: 3,
             walnut: 0,
             mahogany: 0,
             cherry: 0
@@ -79,10 +79,10 @@ export const TierThreeDeck = [
     {
         tier: 2,
         points: 5,
-        isWorth: 'birch',
+        isWorth: 'aspen',
         cost: {
             cedar: 0,
-            birch: 7,
+            aspen: 7,
             walnut: 3,
             mahogany: 0,
             cherry: 0
@@ -94,7 +94,7 @@ export const TierThreeDeck = [
         isWorth: 'walnut',
         cost: {
             cedar: 0,
-            birch: 0,
+            aspen: 0,
             walnut: 7,
             mahogany: 3,
             cherry: 0
@@ -106,7 +106,7 @@ export const TierThreeDeck = [
         isWorth: 'mahogany',
         cost: {
             cedar: 0,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 7,
             cherry: 3

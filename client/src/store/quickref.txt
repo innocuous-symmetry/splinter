@@ -1,0 +1,15 @@
+cedar = emerald
+aspen = diamond
+cherry = ruby
+walnut = sapphire
+mahogany = onyx
+resin = gold
+
+
+tokens => card worth
+aspen (diamond) => cherry (ruby)
+walnut (sapphire) => mahogany (onyx)
+cedar (emerald) => aspen (diamond)
+mahogany (onyx) => cedar (emerald)
+cherry (ruby) => walnut (sapphire)
+

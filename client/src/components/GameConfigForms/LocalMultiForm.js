@@ -62,7 +62,7 @@ export default function LocalMultiForm() {
                 name: allPlayerNames[iter],
                 tokens: {
                     cedar: 0,
-                    birch: 0,
+                    aspen: 0,
                     walnut: 0,
                     mahogany: 0,
                     cherry: 0,
@@ -70,7 +70,7 @@ export default function LocalMultiForm() {
                 },
                 cards: {
                     cedar: 0,
-                    birch: 0,
+                    aspen: 0,
                     walnut: 0,
                     mahogany: 0,
                     cherry: 0,

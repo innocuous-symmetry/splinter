@@ -3,7 +3,7 @@ export const Spirits = [
         img: 'img src',
         cost: {
             cedar: 7,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 0,
             cherry: 0
@@ -13,7 +13,7 @@ export const Spirits = [
         img: 'img src',
         cost: {
             cedar: 7,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 0,
             cherry: 0
@@ -23,7 +23,7 @@ export const Spirits = [
         img: 'img src',
         cost: {
             cedar: 7,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 0,
             cherry: 0
@@ -33,7 +33,7 @@ export const Spirits = [
         img: 'img src',
         cost: {
             cedar: 7,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 0,
             cherry: 0
@@ -43,7 +43,7 @@ export const Spirits = [
         img: 'img src',
         cost: {
             cedar: 7,
-            birch: 0,
+            aspen: 0,
             walnut: 0,
             mahogany: 0,
             cherry: 0

@@ -3,7 +3,7 @@ import { useReducer, createContext } from "react"
 import { TierOneDeck } from './TierOneDeck';
 import { TierTwoDeck } from './TierTwoDeck';
 import { TierThreeDeck } from './TierThreeDeck';
-import { Spirits } from '../components/Game/Spirits';
+import { Spirits } from './Spirits';
 
 const initialGameState = {
     players: [{name: 'no players', inventory: null, cards: null}],
@@ -15,7 +15,7 @@ const initialGameState = {
         },
         tokens: {
             cedar: 7,
-            birch: 7,
+            aspen: 7,
             walnut: 7,
             mahogany: 7,
             cherry: 7,
