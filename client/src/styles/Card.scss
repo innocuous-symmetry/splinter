@@ -1,0 +1,80 @@
+// universal card style
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 15vw;
+    height: 30vh;
+    // styling for face-up (in-play) cards
+    .card-row {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.7rem;
+        height: 50%;
+        .tier {
+            display: inline-block;
+            height: 2rem;
+            width: 2rem;
+            border-radius: 50%;
+            &-3 {
+                background-color: blue;
+            }
+            &-2 {
+                background-color: yellow;
+            }
+            &-1 {
+                background-color: green;
+            }
+        }
+    }
+    .bottom-row {
+        align-items: flex-end;
+    }
+}
+
+// style for individual card "suits"
+.cedar {
+    background-color: limegreen;
+}
+
+.mahogany {
+    background-color: rgb(143, 75, 75);
+    color: white;
+}
+
+.aspen {
+    background-color: wheat;
+}
+
+.walnut {
+    background-color: rgb(79, 28, 28);
+    color: white;
+}
+
+.cherry {
+    background-color: brown;
+}
+
+// for first-row deck cards
+.deck-card {
+    &-1 {
+        background-color: green;
+    }
+    &-2 {
+        background-color: yellow;
+    }
+    &-3 {
+        background-color: blue;
+    }
+}
+
+.tier-dot {
+    display: inline-flex;
+    background-color: white;
+    border: 2px solid black;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0.25rem;
+    border-radius: 50%;
+}

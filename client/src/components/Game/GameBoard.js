@@ -2,46 +2,44 @@ import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../store/Store';
 import '../../styles/GameBoard.css';
 import Card from '../Cards/Card';
-import { TierOneDeck } from '../../store/TierOneDeck';
-import { TierTwoDeck } from '../../store/TierTwoDeck';
-import { TierThreeDeck } from '../../store/TierThreeDeck';
+import { DeckCard } from '../Cards/DeckCard';
 
-import {v4} from 'uuid';
+import jsonCards from '../../store/cards.json';
 
 export default function GameBoard() {
     const [state, dispatch] = useContext(Context);
 
     const [trigger, setTrigger] = useState(true);
-    const [tierThree, setTierThree] = useState(null);
-    const [tierTwo, setTierTwo] = useState(null);
-    const [tierOne, setTierOne] = useState(null);
+    const [rowThree, setRowThree] = useState(null);
+    const [rowTwo, setRowTwo] = useState(null);
+    const [rowOne, setRowOne] = useState(null);
+
+    const { tierOne, tierTwo, tierThree } = jsonCards;
     
     useEffect(() => {
-        const AllDecks = [TierOneDeck, TierTwoDeck, TierThreeDeck];
-        
-        // param limit sets limit on number of cards rendered
-        // param tier filters by card tier
-        const buildGameBoardRow = (limit, tier) => {
-            let newBoard = [];
-            let iter = 0;
-            while (iter < limit) {
-                iter++;
+        const AllDecks = [tierOne, tierTwo, tierThree];
 
-                if (!AllDecks[tier-1][iter-1]) continue;
-                newBoard.push(<Card key={`card-${v4()}`}state={AllDecks[tier-1][iter-1]} />);
+        // param limit sets limit on number of cards rendered
+        const buildGameBoardRow = (limit, tier) => {
+            let newBoard = [<DeckCard tier={tier} />];
+            let i = 0;
+            while (i < limit) {
+                i++;
+                if (!AllDecks[tier-1][i-1]) continue;
+                newBoard.push(<Card tier={tier} props={AllDecks[tier-1][i-1]} />);
             }
 
             switch (tier) {
                 case 1:
-                    setTierOne(newBoard);
+                    setRowOne(newBoard);
                     setTrigger(false);
                     break;
                 case 2:
-                    setTierTwo(newBoard);
+                    setRowTwo(newBoard);
                     setTrigger(false);
                     break;
                 case 3:
-                    setTierThree(newBoard);
+                    setRowThree(newBoard);
                     setTrigger(false);
                     break;
                 default:
@@ -74,20 +72,18 @@ export default function GameBoard() {
             </div>
 
             <div className="gameboard-row">
-                {tierThree || 'Loading'}
+                {rowThree || 'Loading'}
             </div>
 
             <div className="gameboard-row">
-                {tierTwo || 'Loading'}
+                {rowTwo || 'Loading'}
             </div>
 
             <div className="gameboard-row">
-                {tierOne || 'Loading'}
+                {rowOne || 'Loading'}
             </div>
 
-            <h2>Tier one length: {TierOneDeck.length} / 40</h2>
-            <h2>Tier two length: {TierTwoDeck.length} / 30</h2>
-            <h2>Tier three length: {TierThreeDeck.length} / 20</h2>
+            <div className="section-border"></div>
         </div>
     )
 }

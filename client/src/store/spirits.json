@@ -1,0 +1,74 @@
+{
+    "spirits": [
+        {
+            "cherry": 0,
+            "walnut": 4,
+            "cedar": 4,
+            "mahogany": 0,
+            "aspen": 0
+        },
+        {
+            "cherry": 0,
+            "walnut": 3,
+            "cedar": 0,
+            "mahogany": 3,
+            "aspen": 3
+        },
+        {
+            "cherry": 3,
+            "walnut": 0,
+            "cedar": 3,
+            "mahogany": 3,
+            "aspen": 0
+        },
+        {
+            "cherry": 4,
+            "walnut": 0,
+            "cedar": 0,
+            "mahogany": 4,
+            "aspen": 0
+        },
+        {
+            "cherry": 0,
+            "walnut": 0,
+            "cedar": 0,
+            "mahogany": 4,
+            "aspen": 4
+        },
+        {
+            "cherry": 3,
+            "walnut": 3,
+            "cedar": 3,
+            "mahogany": 0,
+            "aspen": 0
+        },
+        {
+            "cherry": 0,
+            "walnut": 3,
+            "cedar": 3,
+            "mahogany": 0,
+            "aspen": 3
+        },
+        {
+            "cherry": 3,
+            "walnut": 0,
+            "cedar": 0,
+            "mahogany": 3,
+            "aspen": 3
+        },
+        {
+            "cherry": 4,
+            "walnut": 0,
+            "cedar": 4,
+            "mahogany": 0,
+            "aspen": 0
+        },
+        {
+            "cherry": 0,
+            "walnut": 4,
+            "cedar": 0,
+            "mahogany": 0,
+            "aspen": 4
+        }
+    ]
+}

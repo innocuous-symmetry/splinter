@@ -1,7 +1,7 @@
-import '../../styles/Card.css';
+import '../../styles/Card.scss';
 
-export default function Card({ state }) {
-    const { tier, points, isWorth, cost } = state;
+export default function Card({ tier, props }) {
+    const { points, isWorth, cost } = props;
 
     const mapCosts = () => {
         let allCosts = [];
@@ -13,7 +13,7 @@ export default function Card({ state }) {
     }
 
     return (
-        <div className="card">
+        <div className={`card ${isWorth}`}>
             <div className="card-row">
                 <div className="value">{isWorth}</div>
                 <div className="points">{points} points</div>
